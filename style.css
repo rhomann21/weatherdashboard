@@ -1,0 +1,38 @@
+.container-fluid {
+    background-color: darkgray;
+    width: 100%;
+}
+
+.display-4 {
+    text-align: center;
+    color: white;
+    width: 100%;
+}
+
+.weatherForecastContainer {
+    margin: 20px;
+}
+
+.cityCard {
+    width: 20%;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.card-body {
+    margin: 5px;
+}
+
+.col-sm-12 {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cityList {
+    margin: 25px;
+}
+
+.searchBar {
+    margin: 10px;
+}

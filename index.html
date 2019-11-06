@@ -4,56 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type ="text/css" href="./normalize.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Weather Dashboard</title>
 </head>
 <body>
     <!--header-->
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
-        <h1 class="display-4">Weather Dashboard</h1>
-    </div>
+<div class="container-fluid row"> <!--MAIN ROW NUMBER 1-->
+    <h1 class="display-4">Weather Dashboard</h1>
 </div>
     <!--search input box(event on mag glass)-->
-<div>
-    <h4>Search for a city:</h4>
-    <form class="form-inline md-form form-sm mt-0">
-        <i class="fas fa-search" aria-hidden="true"></i>
-        <input class="form-control form-control-sm ml-3 w-15" type="text" placeholder="Search"
-            aria-label="Search"><img src="https://image.flaticon.com/icons/svg/149/149852.svg" height="15" width="15">
-    </form>
-
-    
-</div>    
-<!--list of previous searches-->
-<div class="card" style="width: 18rem;">
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">Chicago</li>
-        <li class="list-group-item">Houston</li>
-        <li class="list-group-item">LA</li>
-    </ul>
-</div> 
+<div class="searchBar row"> <!--MAIN ROW NUMBER 2-->
+    <div class="col-3"> <!--MAIN COLUMN NUMBER 1-->
+        <h4>Search for a city:</h4>
+        <form class="form-inline md-form form-sm mt-0">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input class="form-control form-control-sm ml-3 w-15" type="text" placeholder="Search"
+                aria-label="Search"><button>Search</button>
+        </form>     
+    <!--list of previous searches-->
+        <div class="card cityList" style="width: 18rem;">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Chicago</li>
+                <li class="list-group-item">Houston</li>
+                <li class="list-group-item">LA</li>
+            </ul>
+        </div>  
+    </div> 
+    <div class="col-8"> <!--MAIN COLUMN NUMBER 2-->
+        <div class="card row">
+            <div class="card-body cityCard">
+                <h4>Atlanta</h4>
+                <p>Temperature:</p>
+                <p>Wind Speed:</p>
+                <p>Humidity:</p>
+                <p>UV Index:</p>
+            </div>
+        </div>
+        <div class="weatherForecastContainer row">
+            <div class="col-sm-12">
+                <div class="card-body bg-primary p-3">
+                   <h5 class="card-title text-white">Date</h5>
+                    <p class="card-text text-white">Icon</p>
+                    <p class="text-white">Temperature:</p>
+                    <p class="text-white">Humidity:</p>
+                </div>
+                <div class="card-body bg-primary p-3">
+                    <h5 class="card-title text-white">Date</h5>
+                    <p class="card-text text-white">Icon</p>
+                    <p class="text-white">Temperature:</p>
+                    <p class="text-white">Humidity:</p>
+                </div>
+                <div class="card-body bg-primary p-3">
+                    <h5 class="card-title text-white">Date</h5>
+                    <p class="card-text text-white">Icon</p>
+                    <p class="text-white">Temperature:</p>
+                    <p class="text-white">Humidity:</p>
+                </div>
+                <div class="card-body bg-primary p-3">
+                    <h5 class="card-title text-white">Date</h5>
+                    <p class="card-text text-white">Icon</p>
+                    <p class="text-white">Temperature:</p>
+                    <p class="text-white">Humidity:</p>
+                </div>
+                <div class="card-body bg-primary p-3">
+                    <h5 class="card-title text-white">Date</h5>
+                    <p class="card-text text-white">Icon</p>
+                    <p class="text-white">Temperature:</p>
+                    <p class="text-white">Humidity:</p>
+                </div>
+            </div>
+    </div>
+</div>
 <!--current weather status on the city-->
-<div>
-    Current weather of city searched
-</div>
     <!--5 day weather outlook-->
-<div>
-    Day 1
-</div>
-<div>
-    Day 2
-</div>
-<div>
-    Day 3
-</div>
-<div>
-    Day 4
-</div>
-<div>
-    Day 5
-</div>
 
 <script src="app.js"></script>
 
