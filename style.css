@@ -1,5 +1,5 @@
 .container-fluid {
-    background-color: darkgray;
+    background-color: darkslategray ;
     width: 100%;
 }
 
@@ -10,7 +10,7 @@
 }
 
 .weatherForecastContainer {
-    margin: 20px;
+    margin: 5px;
 }
 
 .cityCard {
@@ -22,6 +22,7 @@
 
 .card-body {
     margin: 5px;
+    border-radius: 5px;
 }
 
 .col-sm-12 {
@@ -29,10 +30,18 @@
     justify-content: space-evenly;
 }
 
+.col-3 {
+    background-color: lightgray;
+}
+
+.col-8 {
+    margin: 20px;
+}
+
 .cityList {
     margin: 25px;
 }
 
-.searchBar {
-    margin: 10px;
+.h4 {
+    margin: 25px;
 }
