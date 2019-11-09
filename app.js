@@ -1,28 +1,32 @@
-$(document).ready(function(){
-//db
-apiKey = '1e01aa7c28fe7bf55d263dbe7e9d9dac';
-function currentWeather() {
-    var queryURL = 
-    'http://api.openweathermap.org/data/2.5/weather?q=' +
-    city +
-    '&units=imperial&APPID=' +
-    apiKey;
+$(document).ready(function() {
+    /*data base*/
+    /* raw weather objecdt from api*/
+    var apiKey = "1e01aa7c28fe7bf55d263dbe7e9d9dac";
 
-
-    $ajax({
+    $("#srchBtn").on("click", function() {
+      event.preventDefault();
+      var city = $("#srchCity")
+        .val()
+        .trim();
+      var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
+      $.ajax({
         url: queryURL,
-        method: 'GET',
-    }).then(function(response){
-        for (var i = 0; i < data.list.length; i++) {
-            if (data.list[i].dt_txt.indexOf('15:00:00') === -1) {
-                console.log(data);
-            }
-        }
-    })
-}
+        method: "GET"
+      }).then(function(response) {
+        console.log(response);
+        $('#srchCityName').html(`<div><h1>${response.name}</h1></div>`);
+        $('#srchCityTemp').html(`<div><h4>Temperature: ${response.main.temp}</h4></div>`).Math.round();
+        $('#srchCityWindSpeed').html(`<div><h4>Wind Speed: ${response.wind.speed}</h4></div>`);
+        $('#srchCityHumidity').html(`<div><h4>Humidity: ${response.main.humidity}</h4></div>`);
+      });
+    });
 
 
-});
+
+
+  });
+
+
 
      
 //utility functions
@@ -38,3 +42,5 @@ function currentWeather() {
     //set the weather info to the object returned
 //init
 //check local storage for history of citites and render
+
+
