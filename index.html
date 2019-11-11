@@ -7,6 +7,7 @@
     <link rel="stylesheet" type ="text/css" href="./normalize.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Weather Dashboard</title>
 </head>
@@ -34,16 +35,17 @@
         </div>  
     </div> 
     <div class="col-8"> <!--MAIN COLUMN NUMBER 2-->
-        <div class="card row" id="srchCityName"></div>
-        <div class="card row" id="srchCityTemp"></div>
-        <div class="card row" id="srchCityWindSpeed"></div>
-        <div class="card row" id="srchCityHumidity"></div>
+        <div class="row" id="srchCityName"></div>
+        <div class="row" id="srchCityTemp"></div>
+        <div class="row" id="srchCityWindSpeed"></div>
+        <div class="row" id="srchCityHumidity"></div>
+        <div class="row" id="srchCityUv"></div>
         <div class="weatherForecastContainer row">
-            <h4 class="h4">5 Day Forecast</h4>
+    <h4 class="h4">5 Day Forecast</h4>
             <div class="col-sm-12">
                 <div class="card-body bg-primary p-3">
                    <h5 class="card-title text-white">Date</h5>
-                    <p class="card-text text-white">Icon</p>
+                    <p class="card-text t   ext-white">Icon</p>
                     <p class="text-white">Temperature:</p>
                     <p class="text-white">Humidity:</p>
                 </div>
