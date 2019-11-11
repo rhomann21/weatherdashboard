@@ -1,6 +1,11 @@
 $(document).ready(function() {
-    /*data base*/
-    /* raw weather objecdt from api*/
+
+    $('#srchBtn').keypress(function (e) {
+        if (e.which == 13) {//Enter key pressed
+            $('#srchBtn').click();//Trigger search button click event
+        }
+    });
+
     let apiKey = "1e01aa7c28fe7bf55d263dbe7e9d9dac";
 
     $("#srchBtn").on("click", function() {
@@ -38,10 +43,24 @@ $(document).ready(function() {
             console.log(responsef);
             for(i = 3; i < 40; i += 8) {
                 day = (i-3) / 8;
-                console.log(responsef.list[i].dt_txt);
-            }
-        })
-    })
+
+            
+                
+            let fiveDayDate = responsef.list[i].dt_txt;
+                console.log(fiveDayDate);
+            let fiveDayTemp = responsef.list[i].main.temp;
+            let fiveDayHum = responsef.list[i].main.humidity;
+
+            let newTemp = (((fiveDayTemp - 273.15) * 1.8) + 32).toFixed(); 
+
+            $('#cardRowFiveDay').html(`<div class="card-body bg-primary p-3">
+            <h5 class="card-title text-white">${fiveDayDate}</h5>
+             <p class="card-text text-white">Icon</p>
+             <p class="text-white">Temperature: ${newTemp}</p>
+             <p class="text-white">Humidity: ${fiveDayHum}</p>`);
+            };
+        });
+    });
 
     });
     
