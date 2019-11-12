@@ -39,6 +39,10 @@ $(document).ready(function() {
     });
 
     //add current time and date with moment
+    var now = moment().format('lll');
+    var dateElement = document.querySelector('#dateTime');
+
+    dateElement.innerHTML = now.toString();
 
     //API key
     let apiKey = "1e01aa7c28fe7bf55d263dbe7e9d9dac";
@@ -54,6 +58,7 @@ $(document).ready(function() {
         url: queryURL,
         method: "GET"
       }).then(function(response) {
+          console.log(response);
 
         //Create divs for information pulled from API
         $('#srchCityName').html(`<div><h4>${response.name}</h4></div>`);
