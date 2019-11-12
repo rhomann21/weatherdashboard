@@ -3,7 +3,33 @@ $(document).ready(function() {
     //local storage for user input search of city
     //create button of user search value
     //append button
+ /*   $("#srchBtn").on("click", function () {
+        event.preventDefault();
+        storeUserSearch();
+        });
 
+
+  let pastSearch = JSON.parse(localStorage.getItem("history")) || {};
+  for (i = 0; i < pastSearch.length; i++) {
+      if (Object.keys(pastSearch).length) {
+          $('#history').append(`<button class="list-group-item">${pastSearch[i].value}</button>`);
+      }
+  };
+
+  let searches = [];
+
+  function storeUserSearch() {
+      let userInput = $('#srchCity');
+      searches[searches.length] = {
+          value: userInput.val()
+      };
+      localStorage.setItem("history", JSON.stringify(searches));
+      $('#prevSearches').append(`<button">${srchCity.val()}</button>`);
+      $("#srchCity").val('');
+  };
+  */
+
+  //SCOPE PROBLEM?! WHY IS SRCHCITY.VAL() NOT A FUNCTION - GOOGLE FU THIS ARGHHH
 
     //Search button on "Enter" key press
     $('#srchBtn').keypress(function (e) {
@@ -18,7 +44,7 @@ $(document).ready(function() {
     let apiKey = "1e01aa7c28fe7bf55d263dbe7e9d9dac";
 
     //Onclick Event to search API for user input city
-    $("#srchBtn").on("click", function() {
+    $("#srchBtn").on("click", function(callAPI) {
       event.preventDefault();
       let city = $("#srchCity")
         .val()
@@ -81,6 +107,8 @@ $(document).ready(function() {
              <p class="text-white">Humidity: ${fiveDayHum}%</p>`);
             };
             //Repeat for each day of week!!
+
+
         });
     });
 
