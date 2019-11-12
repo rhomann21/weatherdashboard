@@ -105,11 +105,11 @@ $(document).ready(function() {
             let newTemp = (((fiveDayTemp - 273.15) * 1.8) + 32).toFixed(); 
 
             //Create card for forecast in row
-            $('#cardRowFiveDay').html(`<div class="card-body bg-primary p-3">
+            $('#cardRowFiveDay').append(`<div class="card-body bg-primary p-3">
             <h5 class="card-title text-white">${newDate}</h5>
              <p class="card-text text-white">Icon</p>
              <p class="text-white">Temperature: ${newTemp}°F</p>
-             <p class="text-white">Humidity: ${fiveDayHum}%</p>`);
+             <p class="text-white">Humidity: ${fiveDayHum}%</p></div>`);
             };
             //Repeat for each day of week!!
 
