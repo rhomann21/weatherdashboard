@@ -1,18 +1,11 @@
 $(document).ready(function() {
-    //Replace hard-coded buttons using local storage
-    //local storage for user input search of city
-    //create button of user search value
-    //append button
- /*   $("#srchBtn").on("click", function () {
-        event.preventDefault();
-        storeUserSearch();
-        });
 
+ //put user search into local storeage
 
   let pastSearch = JSON.parse(localStorage.getItem("history")) || {};
   for (i = 0; i < pastSearch.length; i++) {
       if (Object.keys(pastSearch).length) {
-          $('#history').append(`<button class="list-group-item">${pastSearch[i].value}</button>`);
+          $('#history').append(`<button>${pastSearch[i].value}</button>`);
       }
   };
 
@@ -24,12 +17,18 @@ $(document).ready(function() {
           value: userInput.val()
       };
       localStorage.setItem("history", JSON.stringify(searches));
-      $('#prevSearches').append(`<button">${srchCity.val()}</button>`);
+      $('#prevSearches').append(`<button class="list-group-item">${userInput.val()}</button>`);
       $("#srchCity").val('');
   };
-  */
 
-  //SCOPE PROBLEM?! WHY IS SRCHCITY.VAL() NOT A FUNCTION - GOOGLE FU THIS ARGHHH
+  //still need to link button click to previous city search!^^
+
+  //clear user search button
+
+  $("#clearBtn").on("click", function () {
+    localStorage.clear();
+    $('#history').empty();
+});
 
     //Search button on "Enter" key press
     $('#srchBtn').keypress(function (e) {
@@ -58,6 +57,7 @@ $(document).ready(function() {
         url: queryURL,
         method: "GET"
       }).then(function(response) {
+          storeUserSearch();
           console.log(response);
 
         //Create divs for information pulled from API
@@ -76,7 +76,7 @@ $(document).ready(function() {
           }).then(function(response) {
 
             //Add new UV Index div 
-            $('#srchCityUv').html(`<div><h4>The current UV Index is: ${response.value}</h4></div>`)
+        $('#srchCityUv').html(`<div><h4>The current UV Index is: ${response.value}</h4></div>`)
     
             //AJAX call for 5 day forecast
     }).then(function(fiveDayForecast){
@@ -104,14 +104,13 @@ $(document).ready(function() {
             //Convert from Kelvin
             let newTemp = (((fiveDayTemp - 273.15) * 1.8) + 32).toFixed(); 
 
-            //Create card for forecast in row
+            //Create card for forecast in row and append cards for week
             $('#cardRowFiveDay').append(`<div class="card-body bg-primary p-3">
             <h5 class="card-title text-white">${newDate}</h5>
              <p class="card-text text-white">Icon</p>
              <p class="text-white">Temperature: ${newTemp}°F</p>
              <p class="text-white">Humidity: ${fiveDayHum}%</p></div>`);
             };
-            //Repeat for each day of week!!
 
 
         });
