@@ -112,7 +112,7 @@ $(document).ready(function() {
              <p class="text-white">Humidity: ${fiveDayHum}%</p></div>`);
             };
 
-
+            //need to add icons!!!!**
         });
     });
 
