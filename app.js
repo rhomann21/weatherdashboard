@@ -2,10 +2,10 @@ $(document).ready(function() {
 
  //put user search into local storeage
 
-  let pastSearch = JSON.parse(localStorage.getItem("history")) || {};
+  let pastSearch = JSON.parse(localStorage.getItem("userSrch")) || {};
   for (i = 0; i < pastSearch.length; i++) {
       if (Object.keys(pastSearch).length) {
-          $('#history').append(`<button>${pastSearch[i].value}</button>`);
+          $('#userSrch').append(`<button>${pastSearch[i].value}</button>`);
       }
   };
 
@@ -16,7 +16,7 @@ $(document).ready(function() {
       searches[searches.length] = {
           value: userInput.val()
       };
-      localStorage.setItem("history", JSON.stringify(searches));
+      localStorage.setItem("userSrch", JSON.stringify(searches));
       $('#prevSearches').append(`<button class="list-group-item">${userInput.val()}</button>`);
       $("#srchCity").val('');
   };
@@ -27,7 +27,7 @@ $(document).ready(function() {
 
   $("#clearBtn").on("click", function () {
     localStorage.clear();
-    $('#history').empty();
+    $('#userSrch').empty();
 });
 
     //Search button on "Enter" key press
@@ -86,16 +86,12 @@ $(document).ready(function() {
             method: 'GET'
         }).then(function(responsef) {
 
-            //loop through all 4o data points and pick one for each day (6:00:00)
+            //loop through all 4o data points and pick one for each day
             for(i = 3; i < 40; i += 8) {
                 day = (i-3) / 8;
 
-            //Split date time into just date
+            //Split date time into just date?
             let fiveDayDate = responsef.list[i].dt_txt;
-            let splitDate = fiveDayDate.split(' ');
-            let splitDateNew = splitDate[0].split('-');
-            let newDate = splitDateNew[1] + '/' + splitDateNew[2] + '/' + splitDateNew[0];
-            //Figure out how to make this template literal? ^^^
 
             //Grab temperature and humidity
             let fiveDayTemp = responsef.list[i].main.temp;
@@ -106,13 +102,13 @@ $(document).ready(function() {
 
             //Create card for forecast in row and append cards for week
             $('#cardRowFiveDay').append(`<div class="card-body bg-primary p-3">
-            <h5 class="card-title text-white">${newDate}</h5>
+            <h5 class="card-title text-white">${fiveDayDate}</h5>
              <p class="card-text text-white">Icon</p>
              <p class="text-white">Temperature: ${newTemp}°F</p>
              <p class="text-white">Humidity: ${fiveDayHum}%</p></div>`);
             };
 
-            
+
 
             //need to add icons!!!!**
         });
